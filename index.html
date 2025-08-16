@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Shabaan! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff007a, #00ddeb, #ff00ff, #00ff88);
+            background-size: 400%;
+            animation: glowBackground 15s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        @keyframes glowBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 400% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header {
+            padding: 50px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(255, 0, 122, 0.8);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            animation: pulse 2s infinite;
+        }
+
+        .hero {
+            margin: 40px 0;
+        }
+
+        .hero-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00ff88;
+            box-shadow: 0 0 20px #00ff88;
+            margin-bottom: 20px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .hero-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #00ff88;
+        }
+
+        .hero-text {
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 0 0 10px #00ddeb;
+        }
+
+        .slideshow {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 0 20px #ff007a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slideshow h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: #00ddeb;
+            text-shadow: 0 0 10px #00ddeb;
+            margin-bottom: 20px;
+        }
+
+        .slide {
+            display: none;
+            font-size: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ff00ff;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .cake {
+            margin: 40px 0;
+        }
+
+        .cake-img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px #ff00ff;
+            transition: transform 0.5s;
+        }
+
+        .cake-img:hover {
+            transform: scale(1.05);
+        }
+
+        .wish-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: #ff007a;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #ff007a;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .wish-button:hover {
+            box-shadow: 0 0 25px #ff007a;
+            transform: scale(1.1);
+        }
+
+        .gallery {
+            margin: 40px 0;
+        }
+
+        .gallery h2 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+            margin-bottom: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ddeb;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #00ddeb;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+        footer p {
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .confetti {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .hero-img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .slideshow h2, .gallery h2 {
+                font-size: 2rem;
+            }
+
+            .slide {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confetti"></div>
+        <header>
+            <h1>Happy Birthday, Shabaan! 🎂</h1>
+        </header>
+        <section class="hero">
+            <!-- Placeholder for Shabaan's photo -->
+            <img src="images/shabaan.jpg" alt="Shabaan's Photo" class="hero-img">
+            <p class="hero-text">Our Birthday Star Shining Bright! ✨</p>
+        </section>
+        <section class="slideshow">
+            <h2>Messages for You 🫵</h2>
+            <div class="slide">Happy birthday, may your day be filled with joy, love, and everything you wish for 🌹 ~HSTLR</div>
+            <div class="slide">We are Together 🩵Ayan 💚Waiz 🧡Faizan ❤️You 🫵</div>
+            <div class="slide">Where is Rat listing 💀💀💀</div>
+            <div class="slide">Shabaan, you're the heart of our crew! Here's to epic memories and unstoppable vibes! 🎈</div>
+        </section>
+        <section class="cake">
+            <!-- Placeholder for cake image -->
+            <img src="images/cake.jpg" alt="Birthday Cake" class="cake-img">
+            <p>Time to cut the cake and make a wish! 🎂</p>
+            <button class="wish-button" onclick="makeWish()">Make a Wish!</button>
+        </section>
+        <section class="gallery">
+            <h2>Memories with Shabaan 📸</h2>
+            <div class="gallery-grid">
+                <!-- Placeholder images for gallery (replace with your own) -->
+                <img src="images/memory1.jpg" alt="Memory 1 with Shabaan">
+                <img src="images/memory2.jpg" alt="Memory 2 with Shabaan">
+                <img src="images/memory3.jpg" alt="Memory 3 with Shabaan">
+            </div>
+        </section>
+        <footer>
+            <p>Made with ❤️ for Shabaan by HSTLR</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Confetti effect
+        function launchConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#ff007a', '#00ddeb', '#ff00ff', '#00ff88'],
+            });
+        }
+
+        // Make a wish button confetti
+        function makeWish() {
+            confetti({
+                particleCount: 200,
+                spread: 100,
+                colors: ['#ff007a', '#00ddeb', '#ff00ff', '#00ff88'],
+                origin: { y: 0.8 },
+            });
+            document.querySelector('.wish-button').style.boxShadow = '0 0 35px #ff007a';
+            setTimeout(() => {
+                document.querySelector('.wish-button').style.boxShadow = '0 0 15px #ff007a';
+            }, 1000);
+        }
+
+        // Slideshow logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Initialize slideshow
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        // Launch confetti on page load
+        window.onload = function() {
+            launchConfetti();
+            setInterval(launchConfetti, 4000); // Repeat every 4 seconds
+        };
+
+        // Add animation to images on scroll
+        const images = document.querySelectorAll('.gallery-grid img, .hero-img, .cake-img');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        images.forEach(image => {
+            image.style.opacity = 0;
+            image.style.transform = 'translateY(50px) scale(0.9)';
+            image.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(image);
+        });
+    </script>
+</body>
+</html>
